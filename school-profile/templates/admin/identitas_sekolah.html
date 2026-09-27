@@ -1,0 +1,134 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>Identitas Sekolah</h1>
+    <p>Alamat, kontak, statistik sekolah, dan tautan media sosial.</p>
+  </div>
+  <a class="btn btn--sm" href="{{ url_for('public.kontak') }}" target="_blank" rel="noopener">Lihat halaman kontak &#8599;</a>
+</div>
+
+<form class="card" method="post">
+  <h3 class="card__title">Alamat</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="alamat">Alamat Jalan</label>
+      <input type="text" id="alamat" name="alamat" value="{{ sekolah.alamat if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="kode_pos">Kode Pos</label>
+      <input type="text" id="kode_pos" name="kode_pos" value="{{ sekolah.kode_pos if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="desa">Desa / Dusun</label>
+      <input type="text" id="desa" name="desa" value="{{ sekolah.desa if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="kecamatan">Kecamatan</label>
+      <input type="text" id="kecamatan" name="kecamatan" value="{{ sekolah.kecamatan if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="kabupaten">Kabupaten</label>
+      <input type="text" id="kabupaten" name="kabupaten" value="{{ sekolah.kabupaten if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="provinsi">Provinsi</label>
+      <input type="text" id="provinsi" name="provinsi" value="{{ sekolah.provinsi if sekolah else '' }}">
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Kontak</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="telepon">Telepon</label>
+      <input type="text" id="telepon" name="telepon" value="{{ sekolah.telepon if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="whatsapp">WhatsApp</label>
+      <input type="text" id="whatsapp" name="whatsapp" value="{{ sekolah.whatsapp if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" value="{{ sekolah.email if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" value="{{ sekolah.website if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="nss">NSS</label>
+      <input type="text" id="nss" name="nss" value="{{ sekolah.nss if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="npsn">NPSN</label>
+      <input type="text" id="npsn" name="npsn" value="{{ sekolah.npsn if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="jam_operasional">Jam Operasional</label>
+      <input type="text" id="jam_operasional" name="jam_operasional" value="{{ sekolah.jam_operasional if sekolah else '' }}">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="maps_embed">Google Maps (URL iframe)</label>
+    <textarea id="maps_embed" name="maps_embed" style="min-height:80px">{{ sekolah.maps_embed if sekolah else '' }}</textarea>
+    <p class="hint">Di Google Maps: Bagikan &gt; Sematkan peta &gt; Salin hanya atribut <strong>src</strong> iframe.</p>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Media Sosial</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="facebook">Facebook</label>
+      <input type="text" id="facebook" name="facebook" value="{{ sekolah.facebook if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="instagram">Instagram</label>
+      <input type="text" id="instagram" name="instagram" value="{{ sekolah.instagram if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="youtube">YouTube</label>
+      <input type="text" id="youtube" name="youtube" value="{{ sekolah.youtube if sekolah else '' }}">
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Statistik Sekolah</h3>
+  <p class="small muted">Angka ini tampil pada kartu statistik di beranda dan halaman profil.</p>
+
+  <div class="form-grid form-grid--3">
+    <div class="field">
+      <label for="jumlah_siswa">Jumlah Siswa</label>
+      <input type="number" id="jumlah_siswa" name="jumlah_siswa" value="{{ sekolah.jumlah_siswa if sekolah else 0 }}" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_guru">Jumlah Guru &amp; Staff</label>
+      <input type="number" id="jumlah_guru" name="jumlah_guru" value="{{ sekolah.jumlah_guru if sekolah else 0 }}" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_kelas">Jumlah Kelas</label>
+      <input type="number" id="jumlah_kelas" name="jumlah_kelas" value="{{ sekolah.jumlah_kelas if sekolah else 0 }}" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_prestasi">Jumlah Prestasi</label>
+      <input type="number" id="jumlah_prestasi" name="jumlah_prestasi" value="{{ sekolah.jumlah_prestasi if sekolah else 0 }}" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_ekskul">Jumlah Ekstrakurikuler</label>
+      <input type="number" id="jumlah_ekskul" name="jumlah_ekskul" value="{{ sekolah.jumlah_ekskul if sekolah else 0 }}" min="0">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Perubahan</button>
+    <a class="btn" href="{{ url_for('admin.dashboard') }}">Batal</a>
+  </div>
+</form>
+
+{% endblock %}

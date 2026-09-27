@@ -1,0 +1,57 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+
+<section class="section">
+  <div class="container">
+    <p class="small">
+      <a href="{{ url_for('public.index') }}">Beranda</a> /
+      <a href="{{ url_for('public.berita') }}">Berita</a> /
+      <span class="muted">{{ berita.judul }}</span>
+    </p>
+
+    <article class="card" style="margin-top:16px">
+      <span class="badge badge--green">{{ berita.kategori or 'Umum' }}</span>
+      <h2 style="margin:12px 0 6px">{{ berita.judul }}</h2>
+      <p class="small muted">
+        {{ berita.tanggal|tanggal }} &#183; penulis: {{ berita.penulis or 'Tata Usaha' }}
+      </p>
+
+      <div class="card__media" style="margin:18px 0;aspect-ratio:16/9">
+        <img src="{{ berita.thumbnail|gambar }}" alt="{{ berita.judul }}">
+      </div>
+
+      <div class="prose">
+        {% for paragraf in (berita.isi or '').split('\n') %}
+          {% if paragraf.strip() %}
+            <p>{{ paragraf.strip() }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </article>
+
+    <div style="margin-top:24px">
+      <a class="btn" href="{{ url_for('public.berita') }}">&larr; Kembali ke daftar berita</a>
+    </div>
+
+    {% if berita_lain %}
+      <hr class="divider">
+      <h3>Berita lainnya</h3>
+      <div class="grid grid--3" style="margin-top:14px">
+        {% for item in berita_lain %}
+          <article class="card card--hover">
+            <div class="card__media" style="aspect-ratio:16/9">
+              <img src="{{ item.thumbnail|gambar }}" alt="{{ item.judul }}" loading="lazy">
+            </div>
+            <h4 class="card__title">
+              <a href="{{ url_for('public.detail_berita', berita_id=item.id) }}">{{ item.judul }}</a>
+            </h4>
+            <p class="card__text small">{{ item.tanggal|tanggal }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

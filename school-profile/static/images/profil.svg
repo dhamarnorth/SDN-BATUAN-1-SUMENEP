@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Gedung sekolah">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <rect x="180" y="250" width="440" height="230"/>
+    <path d="M160 250 L400 140 L640 250 Z" fill="#f7f7f1"/>
+  </g>
+  <g fill="#e8f3ea" stroke="#1c7c3c" stroke-width="2">
+    <rect x="215" y="295" width="70" height="60"/>
+    <rect x="305" y="295" width="70" height="60"/>
+    <rect x="425" y="295" width="70" height="60"/>
+    <rect x="515" y="295" width="70" height="60"/>
+  </g>
+  <rect x="360" y="380" width="80" height="100" fill="#fbf1df" stroke="#a2610a" stroke-width="2"/>
+  <text x="400" y="530" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">$ cat profil-sekolah.svg</text>
+</svg>

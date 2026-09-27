@@ -1,0 +1,44 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// galeri sekolah</div>
+      <h2>Galeri Foto</h2>
+      <p>Dokumentasi kegiatan pembelajaran, acara, dan fasilitas sekolah.</p>
+    </div>
+
+    <div class="filter-bar">
+      <a href="{{ url_for('public.galeri') }}" class="{{ 'is-active' if not kategori_aktif }}">Semua</a>
+      {% for item in kategori_list %}
+        <a href="{{ url_for('public.galeri', kategori=item) }}" class="{{ 'is-active' if item == kategori_aktif }}">{{ item }}</a>
+      {% endfor %}
+    </div>
+
+    {% if galeri %}
+      <div class="grid grid--4">
+        {% for item in galeri %}
+          <figure class="card" style="padding:12px">
+            <div class="card__media" style="aspect-ratio:1/1">
+              <img src="{{ item.foto|gambar }}" alt="{{ item.judul }}" loading="lazy">
+            </div>
+            <figcaption style="margin-top:10px">
+              <span class="badge badge--grey">{{ item.kategori }}</span>
+              <p class="small" style="margin:8px 0 0"><strong>{{ item.judul }}</strong></p>
+              <p class="small muted" style="margin:2px 0 0">{{ item.tanggal|tanggal }}</p>
+              {% if item.keterangan %}
+                <p class="small muted" style="margin:6px 0 0">{{ item.keterangan }}</p>
+              {% endif %}
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty">Belum ada foto pada kategori ini.</div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

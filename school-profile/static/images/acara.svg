@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Acara sekolah">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <path d="M400 130 L470 300 L330 300 Z"/>
+  </g>
+  <rect x="330" y="320" width="140" height="16" fill="#bcbcae"/>
+  <g fill="#1c7c3c">
+    <circle cx="250" cy="420" r="12"/>
+    <circle cx="400" cy="440" r="12"/>
+    <circle cx="550" cy="420" r="12"/>
+  </g>
+  <text x="400" y="530" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">&gt; acara_acara</text>
+</svg>

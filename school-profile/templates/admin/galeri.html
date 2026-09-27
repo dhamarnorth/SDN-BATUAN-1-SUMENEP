@@ -1,0 +1,62 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>Galeri</h1>
+    <p>Foto diunggah dari dashboard dan langsung tampil di halaman galeri website.</p>
+  </div>
+  <a class="btn btn--primary btn--sm" href="{{ url_for('admin.galeri_tambah') }}">+ Unggah Foto</a>
+</div>
+
+{% if kategori_list %}
+  <div class="filter-bar">
+    <a href="{{ url_for('admin.galeri') }}" class="{{ 'is-active' if not kategori_aktif }}">Semua</a>
+    {% for item in kategori_list %}
+      <a href="{{ url_for('admin.galeri', kategori=item.kategori) }}" class="{{ 'is-active' if item.kategori == kategori_aktif }}">{{ item.kategori }}</a>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% if galeri %}
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th style="width:90px">Foto</th>
+          <th>Judul</th>
+          <th>Kategori</th>
+          <th>Tanggal</th>
+          <th style="width:190px">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in galeri %}
+          <tr>
+            <td><img class="thumb-sm" src="{{ item.foto|gambar }}" alt="{{ item.judul }}"></td>
+            <td>
+              <strong>{{ item.judul }}</strong><br>
+              <span class="small muted">{{ item.keterangan or '-' }}</span>
+            </td>
+            <td><span class="badge badge--grey">{{ item.kategori }}</span></td>
+            <td class="small">{{ item.tanggal|tanggal }}</td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="{{ url_for('admin.galeri_ubah', galeri_id=item.id) }}">Ubah</a>
+                <form method="post" action="{{ url_for('admin.galeri_hapus', galeri_id=item.id) }}"
+                      data-konfirmasi="Hapus foto &quot;{{ item.judul }}&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <div class="empty">Belum ada foto. Klik "Unggah Foto" untuk menambah.</div>
+{% endif %}
+
+{% endblock %}

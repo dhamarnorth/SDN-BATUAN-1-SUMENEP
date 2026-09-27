@@ -1,0 +1,95 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>Profil Sekolah</h1>
+    <p>Ubah nama sekolah, sambutan, sejarah, visi, misi, dan foto utama.</p>
+  </div>
+  <a class="btn btn--sm" href="{{ url_for('public.profil') }}" target="_blank" rel="noopener">Lihat halaman profil &#8599;</a>
+</div>
+
+<form class="card" method="post" enctype="multipart/form-data">
+  <h3 class="card__title">Identitas Utama</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="nama_sekolah">Nama Sekolah *</label>
+      <input type="text" id="nama_sekolah" name="nama_sekolah" value="{{ sekolah.nama_sekolah if sekolah else '' }}" required>
+    </div>
+    <div class="field">
+      <label for="slogan">Slogan / Tagline</label>
+      <input type="text" id="slogan" name="slogan" value="{{ sekolah.slogan if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="npsn">NPSN</label>
+      <input type="text" id="npsn" name="npsn" value="{{ sekolah.npsn if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="jenjang">Jenjang</label>
+      <input type="text" id="jenjang" name="jenjang" value="{{ sekolah.jenjang if sekolah else 'SD' }}">
+    </div>
+    <div class="field">
+      <label for="tahun_berdiri">Tahun Berdiri</label>
+      <input type="number" id="tahun_berdiri" name="tahun_berdiri" value="{{ sekolah.tahun_berdiri if sekolah else '' }}">
+    </div>
+    <div class="field">
+      <label for="kepala_sekolah">Nama Kepala Sekolah *</label>
+      <input type="text" id="kepala_sekolah" name="kepala_sekolah" value="{{ sekolah.kepala_sekolah if sekolah else '' }}" required>
+    </div>
+    <div class="field">
+      <label for="nip_kepsek">NIP Kepala Sekolah</label>
+      <input type="text" id="nip_kepsek" name="nip_kepsek" value="{{ sekolah.nip_kepsek if sekolah else '' }}">
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="field">
+    <label for="ringkasan">Deskripsi Singkat (tampil di beranda)</label>
+    <textarea id="ringkasan" name="ringkasan" style="min-height:90px">{{ sekolah.ringkasan if sekolah else '' }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="sambutan">Sambutan Kepala Sekolah *</label>
+    <textarea id="sambutan" name="sambutan">{{ sekolah.sambutan if sekolah else '' }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="sejarah">Sejarah Sekolah</label>
+    <textarea id="sejarah" name="sejarah">{{ sekolah.sejarah if sekolah else '' }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="visi">Visi *</label>
+    <textarea id="visi" name="visi" style="min-height:80px" required>{{ sekolah.visi if sekolah else '' }}</textarea>
+  </div>
+
+  <div class="field">
+    <label for="misi">Misi *</label>
+    <textarea id="misi" name="misi" style="min-height:150px" required>{{ sekolah.misi if sekolah else '' }}</textarea>
+    <p class="hint">Tulis satu misi per baris. Baris baru otomatis menjadi daftar.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="field">
+    <label for="foto">Foto Sekolah</label>
+    <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png,.webp" data-preview="info-foto">
+    <p class="hint" id="info-foto">Format: JPG, JPEG, PNG, WEBP (maks 5 MB).</p>
+    {% if sekolah and sekolah.foto %}
+      <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <img class="thumb-sm" src="{{ sekolah.foto|gambar }}" alt="Foto sekolah saat ini">
+        <label class="check"><input type="checkbox" name="hapus_gambar" value="ya"> Hapus foto ini</label>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Perubahan</button>
+    <a class="btn" href="{{ url_for('admin.dashboard') }}">Batal</a>
+  </div>
+</form>
+
+{% endblock %}

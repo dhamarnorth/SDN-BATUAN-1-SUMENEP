@@ -1,0 +1,13 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="empty" style="padding:60px 24px">
+      <p style="font-size:42px;margin:0">404</p>
+      <p>Halaman yang Anda cari tidak ditemukan.</p>
+      <p class="small">Retour ke <a href="{{ url_for('public.index') }}">Beranda</a> atau buka <a href="{{ url_for('public.berita') }}">Berita</a>.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

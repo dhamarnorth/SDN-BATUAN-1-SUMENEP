@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin &#183; {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-card__head">
+        <div class="brand" style="justify-content:center">
+          <span class="brand__mark">SD</span>
+        </div>
+        <h1>Login Admin</h1>
+        <p class="small muted">{{ sekolah.nama_sekolah if sekolah else 'SDN BATUAN 1 SUMENEP' }}</p>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash">
+            {% for category, message in messages %}
+              <div class="alert alert--{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" action="{{ url_for('auth.login', next=request.args.get('next')) }}">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+        </div>
+
+        <button class="btn btn--primary btn--block" type="submit">Masuk Dashboard</button>
+      </form>
+
+      <div class="hint-box">
+        <strong>Akun demo</strong><br>
+        admin / admin123<br>
+        guru / guru123<br>
+        <span class="muted">Ganti password setelah masuk lewat menu Akun Admin.</span>
+      </div>
+
+      <p class="small" style="text-align:center;margin-top:16px">
+        <a href="{{ url_for('public.index') }}">&larr; Kembali ke website sekolah</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{# Template dasar dashboard admin (CMS) #}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} &#183; Admin {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="{{ url_for('admin.dashboard') }}">
+      <span class="brand__mark">SD</span>
+      <span>
+        {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link {{ 'is-active' if request.endpoint == 'admin.dashboard' }}" href="{{ url_for('admin.dashboard') }}">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link {{ 'is-active' if request.endpoint == 'admin.profil_sekolah' }}" href="{{ url_for('admin.profil_sekolah') }}">Profil Sekolah</a>
+        <a class="side-link {{ 'is-active' if request.endpoint in ['admin.berita', 'admin.berita_tambah', 'admin.berita_ubah'] }}" href="{{ url_for('admin.berita') }}">Berita</a>
+        <a class="side-link {{ 'is-active' if request.endpoint in ['admin.pengumuman', 'admin.pengumuman_tambah', 'admin.pengumuman_ubah'] }}" href="{{ url_for('admin.pengumuman') }}">Pengumuman</a>
+        <a class="side-link {{ 'is-active' if request.endpoint in ['admin.galeri', 'admin.galeri_tambah', 'admin.galeri_ubah'] }}" href="{{ url_for('admin.galeri') }}">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link {{ 'is-active' if request.endpoint == 'admin.identitas_sekolah' }}" href="{{ url_for('admin.identitas_sekolah') }}">Identitas Sekolah</a>
+        <a class="side-link {{ 'is-active' if request.endpoint == 'admin.akun' }}" href="{{ url_for('admin.akun') }}">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="{{ url_for('public.index') }}" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>{{ admin.username if admin else '-' }}</strong><br>
+      <a href="{{ url_for('auth.logout') }}">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">{{ title }}</div>
+          <div class="topbar__meta">admin/{{ admin.username if admin else '-' }} &#183; {{ sekolah.nama_sekolah if sekolah else '' }}</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert--{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

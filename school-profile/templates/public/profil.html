@@ -1,0 +1,130 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+
+<!-- ===================== KEPALA HALAMAN ===================== -->
+<section class="section" style="padding-bottom:32px">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// profil sekolah</div>
+      <h2>Profil {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}</h2>
+      <p>{{ sekolah.slogan if sekolah else 'Tumbuh, Berpikir, Berprestasi' }}</p>
+    </div>
+
+    <div class="grid grid--2">
+      <div class="card">
+        <div class="card__media" style="aspect-ratio:4/3">
+          <img src="{{ sekolah.foto|gambar('images/profil.svg') if sekolah else url_for('static', filename='images/profil.svg') }}" alt="Gedung {{ sekolah.nama_sekolah if sekolah else 'sekolah' }}">
+        </div>
+        <p class="small muted" style="margin-top:10px">
+          Foto sekolah. Ganti lewat dashboard &#8594; Profil Sekolah.
+        </p>
+      </div>
+
+      <div>
+        <h3>Sambutan Kepala Sekolah</h3>
+        <p class="prose">{{ (sekolah.sambutan if sekolah else '') | replace('\r\n', '<br>') | safe }}</p>
+        <hr class="divider">
+        <p class="small">
+          <strong>{{ sekolah.kepala_sekolah if sekolah else '-' }}</strong><br>
+          Kepala {{ sekolah.nama_sekolah if sekolah else 'Sekolah' }}<br>
+          NIP: {{ sekolah.nip_kepsek if sekolah else '-' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATISTIK ===================== -->
+<section class="section section--alt" style="padding-top:40px;padding-bottom:40px">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// data sekolah</div>
+      <h2>Statistik Sekolah</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="stat">
+        <div class="stat__value">{{ sekolah.jumlah_siswa if sekolah else 0 }}</div>
+        <div class="stat__label">Jumlah Siswa</div>
+      </div>
+      <div class="stat stat--amber">
+        <div class="stat__value">{{ sekolah.jumlah_guru if sekolah else 0 }}</div>
+        <div class="stat__label">Guru &amp; Staff</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">{{ sekolah.jumlah_kelas if sekolah else 0 }}</div>
+        <div class="stat__label">Jumlah Kelas</div>
+      </div>
+      <div class="stat stat--amber">
+        <div class="stat__value">{{ sekolah.jumlah_prestasi if sekolah else 0 }}</div>
+        <div class="stat__label">Prestasi</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value">{{ sekolah.jumlah_ekskul if sekolah else 0 }}</div>
+        <div class="stat__label">Ekstrakurikuler</div>
+      </div>
+      <div class="stat stat--amber">
+        <div class="stat__value">{{ sekolah.tahun_berdiri if sekolah else '-' }}</div>
+        <div class="stat__label">Tahun Berdiri</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEJARAH, VISI, MISI ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2">
+      <div class="card">
+        <span class="badge badge--grey">01</span>
+        <h3 class="card__title">Sejarah Sekolah</h3>
+        <p class="prose">{{ (sekolah.sejarah if sekolah else '') | replace('\r\n', '<br>') | safe }}</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge--grey">02</span>
+        <h3 class="card__title">Visi</h3>
+        <p class="prose">{{ (sekolah.visi if sekolah else '') }}</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px">
+      <span class="badge badge--grey">03</span>
+      <h3 class="card__title">Misi</h3>
+      <p class="prose">{{ (sekolah.misi if sekolah else '') | replace('\n', '<br>') | safe }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IDENTITAS SEKOLAH ===================== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// identitas</div>
+      <h2>Identitas Sekolah</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data">
+        <tbody>
+          <tr><th style="width:260px">Nama Sekolah</th><td>{{ sekolah.nama_sekolah if sekolah else '-' }}</td></tr>
+          <tr><th>NPSN</th><td>{{ sekolah.npsn if sekolah else '-' }}</td></tr>
+          <tr><th>NSS</th><td>{{ sekolah.nss if sekolah else '-' }}</td></tr>
+          <tr><th>Jenjang</th><td>{{ sekolah.jenjang if sekolah else '-' }}</td></tr>
+          <tr><th>Tahun Berdiri</th><td>{{ sekolah.tahun_berdiri if sekolah else '-' }}</td></tr>
+          <tr><th>Kepala Sekolah</th><td>{{ sekolah.kepala_sekolah if sekolah else '-' }}</td></tr>
+          <tr><th>Alamat</th><td>{{ sekolah.alamat if sekolah else '-' }}, {{ sekolah.desa if sekolah else '' }}, {{ sekolah.kecamatan if sekolah else '' }}, {{ sekolah.kabupaten if sekolah else '' }} {{ sekolah.kode_pos if sekolah else '' }}</td></tr>
+          <tr><th>Telepon</th><td>{{ sekolah.telepon if sekolah else '-' }}</td></tr>
+          <tr><th>Email</th><td>{{ sekolah.email if sekolah else '-' }}</td></tr>
+          <tr><th>Website</th><td>{{ sekolah.website if sekolah else '-' }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:20px">
+      <a class="btn btn--primary" href="{{ url_for('public.kontak') }}">Lihat halaman kontak</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

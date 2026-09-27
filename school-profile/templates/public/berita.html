@@ -1,0 +1,78 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// berita sekolah</div>
+      <h2>Berita &amp; Informasi</h2>
+      <p>Informasi kegiatan, pengumuman, dan laporan sekolah.</p>
+    </div>
+
+    <!-- Pencarian & filter kategori -->
+    <form class="toolbar" method="get" action="{{ url_for('public.berita') }}" style="margin-bottom:20px">
+      <div class="field" style="min-width:260px">
+        <label for="q">Cari berita</label>
+        <input type="text" id="q" name="q" value="{{ kata_kunci }}" placeholder="kata kunci...">
+      </div>
+      <div class="field">
+        <label for="kategori">Kategori</label>
+        <select id="kategori" name="kategori">
+          <option value="">Semua kategori</option>
+          {% for item in kategori_list %}
+            <option value="{{ item.kategori }}" {{ 'selected' if item.kategori == kategori_aktif }}>{{ item.kategori }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button class="btn btn--primary" type="submit">Cari</button>
+      {% if kata_kunci or kategori_aktif %}
+        <a class="btn" href="{{ url_for('public.berita') }}">Reset</a>
+      {% endif %}
+    </form>
+
+    {% if berita %}
+      <p class="small muted">Menampilkan {{ berita|length }} dari {{ pag.total }} berita.</p>
+      <div class="grid grid--3" style="margin-top:16px">
+        {% for item in berita %}
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="{{ item.thumbnail|gambar }}" alt="{{ item.judul }}" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">{{ item.kategori or 'Umum' }}</span>
+            <h3 class="card__title">
+              <a href="{{ url_for('public.detail_berita', berita_id=item.id) }}">{{ item.judul }}</a>
+            </h3>
+            <p class="card__text">{{ item.ringkasan or '' }}</p>
+            <div class="card__foot">
+              <span>{{ item.tanggal|tanggal }}</span>
+              <span>{{ item.penulis or 'Tata Usaha' }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      {% if pag.total_halaman > 1 %}
+        <div class="pagination">
+          {% if pag.halaman > 1 %}
+            <a href="{{ url_for('public.berita', halaman=pag.halaman - 1, q=kata_kunci, kategori=kategori_aktif) }}">&larr; Sebelumnya</a>
+          {% endif %}
+          {% for nomor in range(1, pag.total_halaman + 1) %}
+            {% if nomor == pag.halaman %}
+              <span class="is-current">{{ nomor }}</span>
+            {% else %}
+              <a href="{{ url_for('public.berita', halaman=nomor, q=kata_kunci, kategori=kategori_aktif) }}">{{ nomor }}</a>
+            {% endif %}
+          {% endfor %}
+          {% if pag.halaman < pag.total_halaman %}
+            <a href="{{ url_for('public.berita', halaman=pag.halaman + 1, q=kata_kunci, kategori=kategori_aktif) }}">Berikutnya &rarr;</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="empty">Berita tidak ditemukan. Coba kata kunci lain.</div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Fasilitas sekolah">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <rect x="220" y="200" width="360" height="220"/>
+  </g>
+  <g fill="#e8f3ea" stroke="#1c7c3c" stroke-width="2">
+    <rect x="250" y="235" width="60" height="60"/>
+    <rect x="330" y="235" width="60" height="60"/>
+    <rect x="410" y="235" width="60" height="60"/>
+    <rect x="490" y="235" width="60" height="60"/>
+  </g>
+  <rect x="360" y="330" width="80" height="90" fill="#fbf1df" stroke="#a2610a" stroke-width="2"/>
+  <text x="400" y="500" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">$ ls fasilitas/</text>
+</svg>

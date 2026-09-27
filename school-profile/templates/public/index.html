@@ -1,0 +1,192 @@
+{% extends 'public/base.html' %}
+
+{% block content %}
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__prompt">&#9679; website resmi sekolah</span>
+      <h1>{{ sekolah.nama_sekolah if sekolah else 'SDN BATUAN 1 SUMENEP' }}</h1>
+      <p class="hero__slogan">{{ sekolah.slogan if sekolah else 'Tumbuh, Berpikir, Berprestasi' }}</p>
+      <p>{{ sekolah.ringkasan if sekolah else '' }}</p>
+      <div class="hero__actions">
+        <a class="btn" href="{{ url_for('public.profil') }}">Tentang Sekolah</a>
+        <a class="btn btn--primary" href="{{ url_for('public.kontak') }}">PPDB</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PENGUMUMAN ===================== -->
+{% if pengumuman %}
+<section class="container" style="padding-top:32px">
+  <div class="stack">
+    {% for item in pengumuman %}
+      <div class="announce">
+        <span class="announce__tag">PENGUMUMAN</span>
+        <p><strong>{{ item.judul }}</strong><br>{{ item.isi }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- ===================== RINGKASAN + STATISTIK ===================== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="grid grid--2">
+      <div>
+        <div class="section-head">
+          <div class="kicker">// 01 &#183; profil singkat</div>
+          <h2>Selamat datang di {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}</h2>
+        </div>
+        <p class="prose">{{ (sekolah.ringkasan if sekolah else '') }}</p>
+        <a class="btn" href="{{ url_for('public.profil') }}">Baca profil lengkap &rarr;</a>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="stat">
+          <div class="stat__value">{{ sekolah.jumlah_siswa if sekolah else 0 }}</div>
+          <div class="stat__label">Siswa</div>
+        </div>
+        <div class="stat stat--amber">
+          <div class="stat__value">{{ sekolah.jumlah_guru if sekolah else 0 }}</div>
+          <div class="stat__label">Guru &amp; Staff</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">{{ sekolah.jumlah_kelas if sekolah else 0 }}</div>
+          <div class="stat__label">Kelas</div>
+        </div>
+        <div class="stat stat--amber">
+          <div class="stat__value">{{ sekolah.jumlah_prestasi if sekolah else 0 }}</div>
+          <div class="stat__label">Prestasi</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">{{ sekolah.jumlah_ekskul if sekolah else 0 }}</div>
+          <div class="stat__label">Ekstrakurikuler</div>
+        </div>
+        <div class="stat stat--amber">
+          <div class="stat__value">{{ sekolah.tahun_berdiri if sekolah else '-' }}</div>
+          <div class="stat__label">Tahun Berdiri</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BERITA TERBARU ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// 02 &#183; berita sekolah</div>
+      <h2>Kabar Terbaru</h2>
+      <p>Informasi kegiatan dan pengumuman terbaru dari Tata Usaha sekolah.</p>
+    </div>
+
+    {% if berita %}
+      <div class="grid grid--3">
+        {% for item in berita %}
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="{{ item.thumbnail|gambar }}" alt="{{ item.judul }}" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">{{ item.kategori or 'Umum' }}</span>
+            <h3 class="card__title">
+              <a href="{{ url_for('public.detail_berita', berita_id=item.id) }}">{{ item.judul }}</a>
+            </h3>
+            <p class="card__text">{{ item.ringkasan or '' }}</p>
+            <div class="card__foot">
+              <span>{{ item.tanggal|tanggal }}</span>
+              <span>{{ item.penulis or 'Tata Usaha' }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      <div style="margin-top:24px">
+        <a class="btn" href="{{ url_for('public.berita') }}">Lihat semua berita &rarr;</a>
+      </div>
+    {% else %}
+      <div class="empty">Belum ada berita. Tambahkan lewat dashboard admin.</div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ===================== GALERI TERBARU ===================== -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// 03 &#183; galeri</div>
+      <h2>Dokumentasi Sekolah</h2>
+      <p>Potongan kegiatan sehari-hari di {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}.</p>
+    </div>
+
+    {% if galeri %}
+      <div class="grid grid--3">
+        {% for item in galeri %}
+          <figure class="card" style="padding:12px">
+            <div class="card__media" style="aspect-ratio:1/1">
+              <img src="{{ item.foto|gambar }}" alt="{{ item.judul }}" loading="lazy">
+            </div>
+            <figcaption class="small" style="margin-top:10px">
+              <span class="badge badge--grey">{{ item.kategori }}</span><br>
+              {{ item.judul }}
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+      <div style="margin-top:24px">
+        <a class="btn" href="{{ url_for('public.galeri') }}">Buka galeri lengkap &rarr;</a>
+      </div>
+    {% else %}
+      <div class="empty">Belum ada foto galeri.</div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ===================== KONTAK SINGKAT ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid--2">
+      <div>
+        <div class="section-head">
+          <div class="kicker">// 04 &#183; kontak</div>
+          <h2>Tempatkan Pertanyaan Anda</h2>
+          <p>Orang tua dan warga sekolah dapat menghubungi Tata Usaha pada jam kerja.</p>
+        </div>
+        <div class="card">
+          <p><strong>Alamat</strong><br>{{ sekolah.alamat if sekolah else '-' }}<br>
+            {{ sekolah.desa if sekolah else '' }}, {{ sekolah.kecamatan if sekolah else '' }},
+            {{ sekolah.kabupaten if sekolah else '' }} {{ sekolah.kode_pos if sekolah else '' }}</p>
+          <hr class="divider">
+          <p class="small">
+            Telepon: {{ sekolah.telepon if sekolah else '-' }}<br>
+            WhatsApp: {{ sekolah.whatsapp if sekolah else '-' }}<br>
+            Email: {{ sekolah.email if sekolah else '-' }}<br>
+            Jam layanan: {{ sekolah.jam_operasional if sekolah else '-' }}
+          </p>
+        </div>
+        <div style="margin-top:16px">
+          <a class="btn btn--primary" href="{{ url_for('public.kontak') }}">Halaman kontak lengkap</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="card__title">Pendaftaran PPDB</h3>
+        <p class="card__text">
+          Pendaftaran peserta didik baru dibuka setiap tahun. Berkas pendaftaran
+          dikumpulkan langsung ke Tata Usaha sekolah pada jam kerja.
+        </p>
+        <hr class="divider">
+        <p class="small muted">
+          Login untuk staff sekolah:<br>
+          <a href="{{ url_for('auth.login') }}">/admin/login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

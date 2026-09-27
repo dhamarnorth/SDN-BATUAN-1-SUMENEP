@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Ilustrasi gedung sekolah">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#dcdcd0" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="#efefe6"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1280" cy="210" r="90" fill="#e8f3ea" stroke="#1c7c3c" stroke-width="2"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <rect x="360" y="430" width="880" height="300"/>
+    <path d="M330 430 L800 250 L1270 430 Z" fill="#f7f7f1"/>
+  </g>
+  <g fill="#e8f3ea" stroke="#1c7c3c" stroke-width="2">
+    <rect x="420" y="500" width="110" height="90"/>
+    <rect x="560" y="500" width="110" height="90"/>
+    <rect x="930" y="500" width="110" height="90"/>
+    <rect x="1070" y="500" width="110" height="90"/>
+  </g>
+  <rect x="740" y="600" width="120" height="130" fill="#fbf1df" stroke="#a2610a" stroke-width="2"/>
+  <g fill="#bcbcae">
+    <rect x="120" y="730" width="1360" height="10"/>
+  </g>
+  <g font-family="monospace" fill="#6f6f61">
+    <text x="80" y="120" font-size="26">$ ls -la sekolah/</text>
+    <text x="80" y="820" font-size="20">SDN Batuan 1 Sumenep &#183; gambar contoh, ganti lewat dashboard</text>
+  </g>
+</svg>

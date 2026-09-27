@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Kegiatan pembelajaran">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <rect x="200" y="120" width="400" height="260" fill="#ffffff" stroke="#1b1b16" stroke-width="3"/>
+  <path d="M240 300l60-70 50 55 40-40 70 85" fill="none" stroke="#1c7c3c" stroke-width="4"/>
+  <rect x="330" y="440" width="140" height="16" fill="#bcbcae"/>
+  <text x="400" y="520" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">&gt; pembelajaran</text>
+</svg>

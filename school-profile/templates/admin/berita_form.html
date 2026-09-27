@@ -1,0 +1,70 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>{{ title }}</h1>
+    <p>Isi data berita. Field bertanda * wajib diisi.</p>
+  </div>
+  <a class="btn btn--sm" href="{{ url_for('admin.berita') }}">&larr; Kembali ke daftar</a>
+</div>
+
+<form class="card" method="post" enctype="multipart/form-data">
+  <div class="form-grid">
+    <div class="field">
+      <label for="judul">Judul Berita *</label>
+      <input type="text" id="judul" name="judul" value="{{ berita.judul if berita else '' }}" required>
+    </div>
+    <div class="field">
+      <label for="kategori">Kategori</label>
+      <input type="text" id="kategori" name="kategori" value="{{ berita.kategori if berita else '' }}" placeholder="Akademik / Kegiatan Sekolah">
+    </div>
+    <div class="field">
+      <label for="tanggal">Tanggal</label>
+      <input type="date" id="tanggal" name="tanggal" value="{{ berita.tanggal if berita else '' }}" data-tanggal-default>
+    </div>
+    <div class="field">
+      <label for="penulis">Penulis</label>
+      <input type="text" id="penulis" name="penulis" value="{{ berita.penulis if berita else (admin.nama if admin else '') }}">
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="published" {{ 'selected' if not berita or berita.status == 'published' }}>published (tampil di website)</option>
+        <option value="draft" {{ 'selected' if berita and berita.status == 'draft' }}>draft (disembunyikan)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="ringkasan">Ringkasan</label>
+    <textarea id="ringkasan" name="ringkasan" style="min-height:80px">{{ berita.ringkasan if berita else '' }}</textarea>
+    <p class="hint">Tampil di kartu berita pada halaman daftar.</p>
+  </div>
+
+  <div class="field">
+    <label for="isi">Isi Berita *</label>
+    <textarea id="isi" name="isi" style="min-height:240px" required>{{ berita.isi if berita else '' }}</textarea>
+    <p class="hint">Pisahkan paragraf dengan satu baris kosong.</p>
+  </div>
+
+  <div class="field">
+    <label for="thumbnail">Thumbnail</label>
+    <input type="file" id="thumbnail" name="thumbnail" accept=".jpg,.jpeg,.png,.webp" data-preview="info-thumb">
+    <p class="hint" id="info-thumb">Format: JPG, JPEG, PNG, WEBP (maks 5 MB).</p>
+    {% if berita and berita.thumbnail %}
+      <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <img class="thumb-sm" src="{{ berita.thumbnail|gambar }}" alt="Thumbnail saat ini">
+        <label class="check"><input type="checkbox" name="hapus_gambar" value="ya"> Hapus thumbnail ini</label>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Berita</button>
+    <a class="btn" href="{{ url_for('admin.berita') }}">Batal</a>
+  </div>
+</form>
+
+{% endblock %}

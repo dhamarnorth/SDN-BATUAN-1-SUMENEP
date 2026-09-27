@@ -1,0 +1,97 @@
+{# Template dasar untuk semua halaman website publik #}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} &#183; {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}</title>
+  <meta name="description" content="Website profil {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }}, {{ sekolah.kabupaten if sekolah else 'Sumenep' }}. Informasi sekolah, berita, galeri, dan kontak.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a class="brand" href="{{ url_for('public.index') }}">
+        <span class="brand__mark">SD</span>
+        <span class="brand__text">
+          {{ sekolah.nama_sekolah if sekolah else 'SDN BATUAN 1' }}
+          <span>{{ sekolah.kabupaten if sekolah else 'Sumenep' }} &#183; {{ sekolah.tahun_berdiri if sekolah else '1986' }}</span>
+        </span>
+      </a>
+
+      <button class="navtoggle" type="button" data-nav-toggle>[ menu ]</button>
+
+      <nav class="navlinks">
+        <a href="{{ url_for('public.index') }}" class="{{ 'is-active' if request.endpoint == 'public.index' }}">Beranda</a>
+        <a href="{{ url_for('public.profil') }}" class="{{ 'is-active' if request.endpoint == 'public.profil' }}">Profil</a>
+        <span class="disabled" title="Segera hadir pada versi 2">Akademik</span>
+        <span class="disabled" title="Segera hadir pada versi 2">Fasilitas</span>
+        <span class="disabled" title="Segera hadir pada versi 2">Prestasi</span>
+        <a href="{{ url_for('public.berita') }}" class="{{ 'is-active' if request.endpoint in ['public.berita', 'public.detail_berita'] }}">Berita</a>
+        <a href="{{ url_for('public.galeri') }}" class="{{ 'is-active' if request.endpoint == 'public.galeri' }}">Galeri</a>
+        <a href="{{ url_for('public.kontak') }}" class="{{ 'is-active' if request.endpoint == 'public.kontak' }}">Kontak</a>
+        <a class="btn btn--primary btn--sm" href="{{ url_for('auth.login') }}">Login Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {# Pesan flash (sukses / error) #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="container flash">
+          {% for category, message in messages %}
+            <div class="alert alert--{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <h4>{{ sekolah.nama_sekolah if sekolah else 'SDN BATUAN 1' }}</h4>
+          <p>{{ sekolah.slogan if sekolah else 'Tumbuh, Berpikir, Berprestasi' }}</p>
+          <p class="small">
+            {{ sekolah.alamat if sekolah else '' }}<br>
+            {{ sekolah.desa if sekolah else '' }}, {{ sekolah.kecamatan if sekolah else '' }},
+            {{ sekolah.kabupaten if sekolah else '' }} {{ sekolah.kode_pos if sekolah else '' }}
+          </p>
+        </div>
+        <div>
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="{{ url_for('public.index') }}">Beranda</a></li>
+            <li><a href="{{ url_for('public.profil') }}">Profil Sekolah</a></li>
+            <li><a href="{{ url_for('public.berita') }}">Berita</a></li>
+            <li><a href="{{ url_for('public.galeri') }}">Galeri</a></li>
+            <li><a href="{{ url_for('public.kontak') }}">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <ul>
+            <li>Telepon: {{ sekolah.telepon if sekolah else '-' }}</li>
+            <li>WhatsApp: {{ sekolah.whatsapp if sekolah else '-' }}</li>
+            <li>Email: {{ sekolah.email if sekolah else '-' }}</li>
+            <li>Jam: {{ sekolah.jam_operasional if sekolah else '-' }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; {{ sekolah.nama_sekolah if sekolah else 'SDN Batuan 1' }} &#183; Website Profil Sekolah</span>
+        <span>Dibangun dengan Flask + MySQL &#183; <a href="{{ url_for('auth.login') }}">Login Admin</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

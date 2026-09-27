@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Ekstrakurikuler">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <rect x="300" y="160" width="200" height="200"/>
+  </g>
+  <g stroke="#1c7c3c" stroke-width="4" fill="none">
+    <path d="M330 210h140M330 250h140M330 290h100"/>
+  </g>
+  <text x="400" y="440" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">$ cat ekskul.md</text>
+</svg>

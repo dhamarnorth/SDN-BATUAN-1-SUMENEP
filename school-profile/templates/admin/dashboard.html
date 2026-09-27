@@ -1,0 +1,68 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>Dashboard</h1>
+    <p>Ringkasan data website. Semua perubahan langsung tampil di halaman publik.</p>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn--sm" href="{{ url_for('public.index') }}" target="_blank" rel="noopener">Lihat website &#8599;</a>
+    <a class="btn btn--primary btn--sm" href="{{ url_for('admin.berita_tambah') }}">+ Berita baru</a>
+  </div>
+</div>
+
+<!-- Kartu statistik -->
+<div class="grid grid--4">
+  <div class="stat">
+    <div class="stat__value">{{ statistik.berita }}</div>
+    <div class="stat__label">Total Berita</div>
+  </div>
+  <div class="stat stat--amber">
+    <div class="stat__value">{{ statistik.pengumuman }}</div>
+    <div class="stat__label">Total Pengumuman</div>
+  </div>
+  <div class="stat">
+    <div class="stat__value">{{ statistik.galeri }}</div>
+    <div class="stat__label">Total Galeri</div>
+  </div>
+  <div class="stat stat--amber">
+    <div class="stat__value">{{ statistik.profil }}</div>
+    <div class="stat__label">Data Profil Sekolah</div>
+  </div>
+</div>
+
+<div class="grid grid--2">
+  <!-- Aktivitas terbaru -->
+  <div class="card">
+    <h3 class="card__title">Aktivitas Terbaru</h3>
+    {% if aktivitas %}
+      <div class="timeline">
+        {% for item in aktivitas %}
+          <div class="timeline__item">
+            <span class="badge badge--green">{{ item.jenis }}</span>
+            <span>{{ item.nama }}</span>
+            <span class="timeline__time">{{ item.created_at|tanggal }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="muted small">Belum ada aktivitas. Mulai dengan menambah berita.</p>
+    {% endif %}
+  </div>
+
+  <!-- Pintasan -->
+  <div class="card">
+    <h3 class="card__title">Pintasan</h3>
+    <p class="small muted">Menu yang paling sering dipakai staf sekolah.</p>
+    <div style="display:grid;gap:8px;margin-top:12px">
+      <a class="btn btn--sm" href="{{ url_for('admin.profil_sekolah') }}">Ubah profil, visi &amp; misi</a>
+      <a class="btn btn--sm" href="{{ url_for('admin.identitas_sekolah') }}">Ubah kontak &amp; statistik</a>
+      <a class="btn btn--sm" href="{{ url_for('admin.pengumuman_tambah') }}">+ Tambah pengumuman</a>
+      <a class="btn btn--sm" href="{{ url_for('admin.galeri_tambah') }}">+ Unggah foto galeri</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

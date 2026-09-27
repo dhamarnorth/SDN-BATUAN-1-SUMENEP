@@ -1,0 +1,59 @@
+{% extends 'admin/base_admin.html' %}
+
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <h1>Pengumuman</h1>
+    <p>Pengumuman aktif tampil di bagian atas beranda website.</p>
+  </div>
+  <a class="btn btn--primary btn--sm" href="{{ url_for('admin.pengumuman_tambah') }}">+ Tambah Pengumuman</a>
+</div>
+
+{% if pengumuman %}
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Judul</th>
+          <th>Mulai</th>
+          <th>Selesai</th>
+          <th>Status</th>
+          <th style="width:190px">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in pengumuman %}
+          <tr>
+            <td>
+              <strong>{{ item.judul }}</strong><br>
+              <span class="small muted">{{ item.isi[:80] }}{{ '...' if item.isi|length > 80 else '' }}</span>
+            </td>
+            <td class="small">{{ item.tanggal_mulai|tanggal }}</td>
+            <td class="small">{{ item.tanggal_selesai|tanggal }}</td>
+            <td>
+              {% if item.aktif %}
+                <span class="badge badge--green">aktif</span>
+              {% else %}
+                <span class="badge badge--grey">nonaktif</span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="{{ url_for('admin.pengumuman_ubah', pengumuman_id=item.id) }}">Ubah</a>
+                <form method="post" action="{{ url_for('admin.pengumuman_hapus', pengumuman_id=item.id) }}"
+                      data-konfirmasi="Hapus pengumuman &quot;{{ item.judul }}&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <div class="empty">Belum ada pengumuman.</div>
+{% endif %}
+
+{% endblock %}
