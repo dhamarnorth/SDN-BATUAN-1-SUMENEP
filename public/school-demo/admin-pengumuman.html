@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengumuman &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link " href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link " href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link " href="admin-berita.html">Berita</a>
+        <a class="side-link is-active" href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link " href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Pengumuman</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Pengumuman</h1>
+    <p>Pengumuman aktif tampil di bagian atas beranda website.</p>
+  </div>
+  <a class="btn btn--primary btn--sm" href="admin-pengumuman-form.html">+ Tambah Pengumuman</a>
+</div>
+
+
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Judul</th>
+          <th>Mulai</th>
+          <th>Selesai</th>
+          <th>Status</th>
+          <th style="width:190px">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>
+              <strong>PPDB Tahun Ajaran 2025/2026 Telah Dibuka</strong><br>
+              <span class="small muted">Pendaftaran peserta didik baru dibuka mulai 1 Juni sampai 15 Juli. Berkas dikump...</span>
+            </td>
+            <td class="small">2024-06-01</td>
+            <td class="small">2024-07-15</td>
+            <td>
+              
+                <span class="badge badge--green">aktif</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="admin-pengumuman-form.html">Ubah</a>
+                <form method="post" action="/admin/pengumuman/1/hapus"
+                      data-konfirmasi="Hapus pengumuman &quot;PPDB Tahun Ajaran 2025/2026 Telah Dibuka&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              <strong>Pendaftaran Ekstrakurikuler</strong><br>
+              <span class="small muted">Pendaftaran kegiatan ekstrakurikuler dibuka untuk semua siswa. Pendaftaran dilak...</span>
+            </td>
+            <td class="small">2024-06-01</td>
+            <td class="small">2024-07-15</td>
+            <td>
+              
+                <span class="badge badge--green">aktif</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="admin-pengumuman-form.html">Ubah</a>
+                <form method="post" action="/admin/pengumuman/2/hapus"
+                      data-konfirmasi="Hapus pengumuman &quot;Pendaftaran Ekstrakurikuler&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identitas Sekolah &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link " href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link " href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link " href="admin-berita.html">Berita</a>
+        <a class="side-link " href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link is-active" href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Identitas Sekolah</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Identitas Sekolah</h1>
+    <p>Alamat, kontak, statistik sekolah, dan tautan media sosial.</p>
+  </div>
+  <a class="btn btn--sm" href="kontak.html" target="_blank" rel="noopener">Lihat halaman kontak &#8599;</a>
+</div>
+
+<form class="card" method="post">
+  <h3 class="card__title">Alamat</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="alamat">Alamat Jalan</label>
+      <input type="text" id="alamat" name="alamat" value="Dusun Sambil">
+    </div>
+    <div class="field">
+      <label for="kode_pos">Kode Pos</label>
+      <input type="text" id="kode_pos" name="kode_pos" value="62211">
+    </div>
+    <div class="field">
+      <label for="desa">Desa / Dusun</label>
+      <input type="text" id="desa" name="desa" value="Batuan">
+    </div>
+    <div class="field">
+      <label for="kecamatan">Kecamatan</label>
+      <input type="text" id="kecamatan" name="kecamatan" value="Batuan">
+    </div>
+    <div class="field">
+      <label for="kabupaten">Kabupaten</label>
+      <input type="text" id="kabupaten" name="kabupaten" value="Sumenep">
+    </div>
+    <div class="field">
+      <label for="provinsi">Provinsi</label>
+      <input type="text" id="provinsi" name="provinsi" value="Jawa Timur">
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Kontak</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="telepon">Telepon</label>
+      <input type="text" id="telepon" name="telepon" value="(0328) 000-0000">
+    </div>
+    <div class="field">
+      <label for="whatsapp">WhatsApp</label>
+      <input type="text" id="whatsapp" name="whatsapp" value="0800 0000 0000">
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" value="info@sdbatuan1.example.sch.id">
+    </div>
+    <div class="field">
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" value="https://sdbatuan1.example.sch.id">
+    </div>
+    <div class="field">
+      <label for="nss">NSS</label>
+      <input type="text" id="nss" name="nss" value="10.02.05.0123456">
+    </div>
+    <div class="field">
+      <label for="npsn">NPSN</label>
+      <input type="text" id="npsn" name="npsn" value="20531889">
+    </div>
+    <div class="field">
+      <label for="jam_operasional">Jam Operasional</label>
+      <input type="text" id="jam_operasional" name="jam_operasional" value="Senin - Jumat, 07.00 - 13.30 WIB">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="maps_embed">Google Maps (URL iframe)</label>
+    <textarea id="maps_embed" name="maps_embed" style="min-height:80px"></textarea>
+    <p class="hint">Di Google Maps: Bagikan &gt; Sematkan peta &gt; Salin hanya atribut <strong>src</strong> iframe.</p>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Media Sosial</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="facebook">Facebook</label>
+      <input type="text" id="facebook" name="facebook" value="https://facebook.com/sdbatuan1">
+    </div>
+    <div class="field">
+      <label for="instagram">Instagram</label>
+      <input type="text" id="instagram" name="instagram" value="https://instagram.com/sdbatuan1">
+    </div>
+    <div class="field">
+      <label for="youtube">YouTube</label>
+      <input type="text" id="youtube" name="youtube" value="">
+    </div>
+  </div>
+
+  <hr class="divider">
+  <h3 class="card__title">Statistik Sekolah</h3>
+  <p class="small muted">Angka ini tampil pada kartu statistik di beranda dan halaman profil.</p>
+
+  <div class="form-grid form-grid--3">
+    <div class="field">
+      <label for="jumlah_siswa">Jumlah Siswa</label>
+      <input type="number" id="jumlah_siswa" name="jumlah_siswa" value="248" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_guru">Jumlah Guru &amp; Staff</label>
+      <input type="number" id="jumlah_guru" name="jumlah_guru" value="18" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_kelas">Jumlah Kelas</label>
+      <input type="number" id="jumlah_kelas" name="jumlah_kelas" value="6" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_prestasi">Jumlah Prestasi</label>
+      <input type="number" id="jumlah_prestasi" name="jumlah_prestasi" value="27" min="0">
+    </div>
+    <div class="field">
+      <label for="jumlah_ekskul">Jumlah Ekstrakurikuler</label>
+      <input type="number" id="jumlah_ekskul" name="jumlah_ekskul" value="7" min="0">
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Perubahan</button>
+    <a class="btn" href="admin-dashboard.html">Batal</a>
+  </div>
+</form>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

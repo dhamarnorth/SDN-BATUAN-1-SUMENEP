@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berita Sekolah &#183; SDN BATUAN 1 SUMENEP</title>
+  <meta name="description" content="Website profil SDN BATUAN 1 SUMENEP, Sumenep. Informasi sekolah, berita, galeri, dan kontak.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a class="brand" href="">
+        <span class="brand__mark">SD</span>
+        <span class="brand__text">
+          SDN BATUAN 1 SUMENEP
+          <span>Sumenep &#183; 1986</span>
+        </span>
+      </a>
+
+      <button class="navtoggle" type="button" data-nav-toggle>[ menu ]</button>
+
+      <nav class="navlinks">
+        <a href="" class="">Beranda</a>
+        <a href="profil.html" class="">Profil</a>
+        <span class="disabled" title="Segera hadir pada versi 2">Akademik</span>
+        <span class="disabled" title="Segera hadir pada versi 2">Fasilitas</span>
+        <span class="disabled" title="Segera hadir pada versi 2">Prestasi</span>
+        <a href="berita.html" class="is-active">Berita</a>
+        <a href="galeri.html" class="">Galeri</a>
+        <a href="kontak.html" class="">Kontak</a>
+        <a class="btn btn--primary btn--sm" href="login.html">Login Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    
+    
+      
+    
+
+    
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">// berita sekolah</div>
+      <h2>Berita &amp; Informasi</h2>
+      <p>Informasi kegiatan, pengumuman, dan laporan sekolah.</p>
+    </div>
+
+    <!-- Pencarian & filter kategori -->
+    <form class="toolbar" method="get" action="/berita" style="margin-bottom:20px">
+      <div class="field" style="min-width:260px">
+        <label for="q">Cari berita</label>
+        <input type="text" id="q" name="q" value="" placeholder="kata kunci...">
+      </div>
+      <div class="field">
+        <label for="kategori">Kategori</label>
+        <select id="kategori" name="kategori">
+          <option value="">Semua kategori</option>
+          
+            <option value="Akademik" >Akademik</option>
+          
+            <option value="Fasilitas" >Fasilitas</option>
+          
+            <option value="Kegiatan Sekolah" >Kegiatan Sekolah</option>
+          
+            <option value="Akademik" >Akademik</option>
+          
+            <option value="Prestasi" >Prestasi</option>
+          
+        </select>
+      </div>
+      <button class="btn btn--primary" type="submit">Cari</button>
+      
+    </form>
+
+    
+      <p class="small muted">Menampilkan 5 dari 9 berita.</p>
+      <div class="grid grid--3" style="margin-top:16px">
+        
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="assets/pembelajaran.svg" alt="Kegiatan Muatan Lokal Batuan" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">Akademik</span>
+            <h3 class="card__title">
+              <a href="berita-detail.html">Kegiatan Muatan Lokal Batuan</a>
+            </h3>
+            <p class="card__text">Siswa kelas IV belajar mengenal lingkungan sekitar melalui pembelajaran tematik bersama guru kelas.</p>
+            <div class="card__foot">
+              <span>2024-08-12</span>
+              <span>Guru Kelas 4A</span>
+            </div>
+          </article>
+        
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="assets/fasilitas.svg" alt="Perpustakaan Sekolah Ditata Ulang" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">Fasilitas</span>
+            <h3 class="card__title">
+              <a href="berita-detail.html">Perpustakaan Sekolah Ditata Ulang</a>
+            </h3>
+            <p class="card__text">Rak buku dipindah agar lebih rapi, pencahayaan diperbaiki, dan koleksi buku anak bertambah.</p>
+            <div class="card__foot">
+              <span>2024-07-28</span>
+              <span>Tim Perpustakaan</span>
+            </div>
+          </article>
+        
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="assets/kegiatan.svg" alt="Jumat Bersih dan Literasi" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">Kegiatan Sekolah</span>
+            <h3 class="card__title">
+              <a href="berita-detail.html">Jumat Bersih dan Literasi</a>
+            </h3>
+            <p class="card__text">Siswa bersama guru membersihkan sekolah dan membaca bersama di perpustakaan.</p>
+            <div class="card__foot">
+              <span>2024-07-19</span>
+              <span>Wali Kelas 5B</span>
+            </div>
+          </article>
+        
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="assets/pembelajaran.svg" alt="Pelatihan Pembelajaran Daring untuk Guru" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">Akademik</span>
+            <h3 class="card__title">
+              <a href="berita-detail.html">Pelatihan Pembelajaran Daring untuk Guru</a>
+            </h3>
+            <p class="card__text">Guru mengikuti pelatihan membuat materi ajar sederhana yang mudah diakses siswa dari rumah.</p>
+            <div class="card__foot">
+              <span>2024-06-25</span>
+              <span>Tata Usaha</span>
+            </div>
+          </article>
+        
+          <article class="card card--hover">
+            <div class="card__media">
+              <img src="assets/prestasi.svg" alt="Juara Lomba Mewarnai Tingkat Kecamatan" loading="lazy">
+            </div>
+            <span class="badge badge--green" style="margin-top:12px">Prestasi</span>
+            <h3 class="card__title">
+              <a href="berita-detail.html">Juara Lomba Mewarnai Tingkat Kecamatan</a>
+            </h3>
+            <p class="card__text">Siswa kelas IV meraih juara pada lomba mewarnai tingkat kecamatan.</p>
+            <div class="card__foot">
+              <span>2024-06-10</span>
+              <span>Wali Kelas 4A</span>
+            </div>
+          </article>
+        
+      </div>
+
+      
+        <div class="pagination">
+          
+          
+            
+              <span class="is-current">1</span>
+            
+          
+            
+              <a href="berita.html">2</a>
+            
+          
+          
+            <a href="berita.html">Berikutnya &rarr;</a>
+          
+        </div>
+      
+    
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <h4>SDN BATUAN 1 SUMENEP</h4>
+          <p>Tumbuh, Berpikir, Berprestasi</p>
+          <p class="small">
+            Dusun Sambil<br>
+            Batuan, Batuan,
+            Sumenep 62211
+          </p>
+        </div>
+        <div>
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="">Beranda</a></li>
+            <li><a href="profil.html">Profil Sekolah</a></li>
+            <li><a href="berita.html">Berita</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <ul>
+            <li>Telepon: (0328) 000-0000</li>
+            <li>WhatsApp: 0800 0000 0000</li>
+            <li>Email: info@sdbatuan1.example.sch.id</li>
+            <li>Jam: Senin - Jumat, 07.00 - 13.30 WIB</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; SDN BATUAN 1 SUMENEP &#183; Website Profil Sekolah</span>
+        <span>Dibangun dengan Flask + MySQL &#183; <a href="login.html">Login Admin</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

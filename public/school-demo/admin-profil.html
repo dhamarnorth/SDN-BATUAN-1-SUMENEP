@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Sekolah &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link " href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link is-active" href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link " href="admin-berita.html">Berita</a>
+        <a class="side-link " href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link " href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Profil Sekolah</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Profil Sekolah</h1>
+    <p>Ubah nama sekolah, sambutan, sejarah, visi, misi, dan foto utama.</p>
+  </div>
+  <a class="btn btn--sm" href="profil.html" target="_blank" rel="noopener">Lihat halaman profil &#8599;</a>
+</div>
+
+<form class="card" method="post" enctype="multipart/form-data">
+  <h3 class="card__title">Identitas Utama</h3>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="nama_sekolah">Nama Sekolah *</label>
+      <input type="text" id="nama_sekolah" name="nama_sekolah" value="SDN BATUAN 1 SUMENEP" required>
+    </div>
+    <div class="field">
+      <label for="slogan">Slogan / Tagline</label>
+      <input type="text" id="slogan" name="slogan" value="Tumbuh, Berpikir, Berprestasi">
+    </div>
+    <div class="field">
+      <label for="npsn">NPSN</label>
+      <input type="text" id="npsn" name="npsn" value="20531889">
+    </div>
+    <div class="field">
+      <label for="jenjang">Jenjang</label>
+      <input type="text" id="jenjang" name="jenjang" value="SD">
+    </div>
+    <div class="field">
+      <label for="tahun_berdiri">Tahun Berdiri</label>
+      <input type="number" id="tahun_berdiri" name="tahun_berdiri" value="1986">
+    </div>
+    <div class="field">
+      <label for="kepala_sekolah">Nama Kepala Sekolah *</label>
+      <input type="text" id="kepala_sekolah" name="kepala_sekolah" value="Bapak Ahmad Fauzi, S.Pd. (placeholder)" required>
+    </div>
+    <div class="field">
+      <label for="nip_kepsek">NIP Kepala Sekolah</label>
+      <input type="text" id="nip_kepsek" name="nip_kepsek" value="196805121994031005">
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="field">
+    <label for="ringkasan">Deskripsi Singkat (tampil di beranda)</label>
+    <textarea id="ringkasan" name="ringkasan" style="min-height:90px">SDN Batuan 1 adalah sekolah dasar negeri yang berada di Kecamatan Batuan, Kabupaten Sumenep, Jawa Timur. Kami menyiapkan generasi yang cinta belajar, berkarakter, dan berani berkarya.</textarea>
+  </div>
+
+  <div class="field">
+    <label for="sambutan">Sambutan Kepala Sekolah *</label>
+    <textarea id="sambutan" name="sambutan">Assalamualaikum warahmatullahi wabarakatub. Segala puji bagi Tuhan Yang Maha Esa. Kami berterima kasih kepada seluruh warga sekolah yang terus bekerja sama. Dashboard sekolah ini dibuat sederhana agar mudah dikelola staf sekolah. Kami berharap SDN Batuan 1 menjadi rumah belajar yang nyaman dan menyenangkan bagi setiap anak. Wassalamualaikum warahmatullahi wabarakatub.</textarea>
+  </div>
+
+  <div class="field">
+    <label for="sejarah">Sejarah Sekolah</label>
+    <textarea id="sejarah" name="sejarah">SDN Batuan 1 berdiri pada tahun 1986 di tengah Desa Batuan, Kecamatan Batuan, Kabupaten Sumenep. Berawal dari satu bangunan sederhana, sekolah terus berkembang Bersama warga desa. Ruang kelas diperluas, laboratorium ditambahkan, dan kegiatan ekstrakurikuler makin beragam.</textarea>
+  </div>
+
+  <div class="field">
+    <label for="visi">Visi *</label>
+    <textarea id="visi" name="visi" style="min-height:80px" required>Terwujudnya peserta didik yang beriman, bertakwa, berprestasi, serta berbudaya cinta tanah air.</textarea>
+  </div>
+
+  <div class="field">
+    <label for="misi">Misi *</label>
+    <textarea id="misi" name="misi" style="min-height:150px" required>1. Menyelenggarakan pembelajaran yang aktif, kreatif, efektif, dan menyenangkan.
+2. Menanamkan ketakwaan dan akhlak mulia dalam setiap kegiatan sekolah.
+3. Mengembangkan bakat dan minat siswa melalui kegiatan ekstrakurikuler.
+4. Membangun lingkungan sekolah yang bersih, nyaman, dan ramah anak.
+5. Menjalin kerja sama yang baik dengan orang tua dan masyarakat.</textarea>
+    <p class="hint">Tulis satu misi per baris. Baris baru otomatis menjadi daftar.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="field">
+    <label for="foto">Foto Sekolah</label>
+    <input type="file" id="foto" name="foto" accept=".jpg,.jpeg,.png,.webp" data-preview="info-foto">
+    <p class="hint" id="info-foto">Format: JPG, JPEG, PNG, WEBP (maks 5 MB).</p>
+    
+      <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <img class="thumb-sm" src="assets/profil.svg" alt="Foto sekolah saat ini">
+        <label class="check"><input type="checkbox" name="hapus_gambar" value="ya"> Hapus foto ini</label>
+      </div>
+    
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Perubahan</button>
+    <a class="btn" href="admin-dashboard.html">Batal</a>
+  </div>
+</form>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link is-active" href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link " href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link " href="admin-berita.html">Berita</a>
+        <a class="side-link " href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link " href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Dashboard</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+          
+            <div class="alert alert--success">Selamat datang, Administrator Sekolah!</div>
+          
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Dashboard</h1>
+    <p>Ringkasan data website. Semua perubahan langsung tampil di halaman publik.</p>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn--sm" href="" target="_blank" rel="noopener">Lihat website &#8599;</a>
+    <a class="btn btn--primary btn--sm" href="admin-berita-form.html">+ Berita baru</a>
+  </div>
+</div>
+
+<!-- Kartu statistik -->
+<div class="grid grid--4">
+  <div class="stat">
+    <div class="stat__value">9</div>
+    <div class="stat__label">Total Berita</div>
+  </div>
+  <div class="stat stat--amber">
+    <div class="stat__value">9</div>
+    <div class="stat__label">Total Pengumuman</div>
+  </div>
+  <div class="stat">
+    <div class="stat__value">9</div>
+    <div class="stat__label">Total Galeri</div>
+  </div>
+  <div class="stat stat--amber">
+    <div class="stat__value">1</div>
+    <div class="stat__label">Data Profil Sekolah</div>
+  </div>
+</div>
+
+<div class="grid grid--2">
+  <!-- Aktivitas terbaru -->
+  <div class="card">
+    <h3 class="card__title">Aktivitas Terbaru</h3>
+    
+      <div class="timeline">
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Berita</span>
+            <span></span>
+            <span class="timeline__time">2024-08-12 09:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Galeri</span>
+            <span></span>
+            <span class="timeline__time">2024-08-12 08:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Galeri</span>
+            <span></span>
+            <span class="timeline__time">2024-08-08 08:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Galeri</span>
+            <span></span>
+            <span class="timeline__time">2024-08-05 08:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Galeri</span>
+            <span></span>
+            <span class="timeline__time">2024-07-30 08:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Berita</span>
+            <span></span>
+            <span class="timeline__time">2024-07-28 09:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Galeri</span>
+            <span></span>
+            <span class="timeline__time">2024-07-22 08:00:00</span>
+          </div>
+        
+          <div class="timeline__item">
+            <span class="badge badge--green">Berita</span>
+            <span></span>
+            <span class="timeline__time">2024-07-19 09:00:00</span>
+          </div>
+        
+      </div>
+    
+  </div>
+
+  <!-- Pintasan -->
+  <div class="card">
+    <h3 class="card__title">Pintasan</h3>
+    <p class="small muted">Menu yang paling sering dipakai staf sekolah.</p>
+    <div style="display:grid;gap:8px;margin-top:12px">
+      <a class="btn btn--sm" href="admin-profil.html">Ubah profil, visi &amp; misi</a>
+      <a class="btn btn--sm" href="admin-identitas.html">Ubah kontak &amp; statistik</a>
+      <a class="btn btn--sm" href="admin-pengumuman-form.html">+ Tambah pengumuman</a>
+      <a class="btn btn--sm" href="admin-galeri-form.html">+ Unggah foto galeri</a>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

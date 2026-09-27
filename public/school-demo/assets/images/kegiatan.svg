@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Kegiatan sekolah">
+  <rect width="800" height="600" fill="#efefe6"/>
+  <g stroke="#1b1b16" stroke-width="3" fill="#ffffff">
+    <circle cx="400" cy="230" r="110"/>
+  </g>
+  <g stroke="#1c7c3c" stroke-width="4" fill="none">
+    <path d="M330 230h140M400 160v140"/>
+  </g>
+  <rect x="300" y="400" width="200" height="16" fill="#bcbcae"/>
+  <text x="400" y="490" font-family="monospace" font-size="20" fill="#6f6f61" text-anchor="middle">$ cat kegiatan.txt</text>
+</svg>

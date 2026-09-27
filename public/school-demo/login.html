@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin &#183; SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-card__head">
+        <div class="brand" style="justify-content:center">
+          <span class="brand__mark">SD</span>
+        </div>
+        <h1>Login Admin</h1>
+        <p class="small muted">SDN BATUAN 1 SUMENEP</p>
+      </div>
+
+      
+        
+      
+
+      <form method="post" action="/admin/login">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+        </div>
+
+        <button class="btn btn--primary btn--block" type="submit">Masuk Dashboard</button>
+      </form>
+
+      <div class="hint-box">
+        <strong>Akun demo</strong><br>
+        admin / admin123<br>
+        guru / guru123<br>
+        <span class="muted">Ganti password setelah masuk lewat menu Akun Admin.</span>
+      </div>
+
+      <p class="small" style="text-align:center;margin-top:16px">
+        <a href="">&larr; Kembali ke website sekolah</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

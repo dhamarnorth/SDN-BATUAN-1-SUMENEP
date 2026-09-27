@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Pengumuman &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link " href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link " href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link " href="admin-berita.html">Berita</a>
+        <a class="side-link is-active" href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link " href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Tambah Pengumuman</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Tambah Pengumuman</h1>
+    <p>Pengumuman dapat diberi tanggal mulai dan selesai.</p>
+  </div>
+  <a class="btn btn--sm" href="admin-pengumuman.html">&larr; Kembali ke daftar</a>
+</div>
+
+<form class="card" method="post">
+  <div class="field">
+    <label for="judul">Judul Pengumuman *</label>
+    <input type="text" id="judul" name="judul" value="" required>
+  </div>
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="tanggal_mulai">Tanggal Mulai</label>
+      <input type="date" id="tanggal_mulai" name="tanggal_mulai" value="">
+    </div>
+    <div class="field">
+      <label for="tanggal_selesai">Tanggal Selesai</label>
+      <input type="date" id="tanggal_selesai" name="tanggal_selesai" value="">
+      <p class="hint">Kosongkan bila tidak ada batas waktu.</p>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="isi">Isi Pengumuman *</label>
+    <textarea id="isi" name="isi" style="min-height:150px" required></textarea>
+  </div>
+
+  <div class="field">
+    <label class="check">
+      <input type="checkbox" name="aktif" value="1" checked>
+      Tampilkan pengumuman ini di beranda
+    </label>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn--primary" type="submit">Simpan Pengumuman</button>
+    <a class="btn" href="admin-pengumuman.html">Batal</a>
+  </div>
+</form>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

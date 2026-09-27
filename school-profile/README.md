@@ -39,6 +39,26 @@ muncul di website publik tanpa perlu menyentuh kode.
 > dikerjakan di versi 1. Schema tabelnya sudah disediakan dalam bentuk
 > komentar di bagian akhir `database.sql`.
 
+### Preview statis (opsional)
+
+Folder `public/school-demo/` berisi hasil *render* seluruh halaman dari template
+ini memakai data contoh, sehingga tampilan bisa dilihat tanpa MySQL:
+
+```
+public/school-demo/daftar-halaman.html   <- daftar semua halaman preview
+public/school-demo/index.html            <- beranda
+public/school-demo/admin-dashboard.html  <- dashboard admin
+```
+
+Preview ini cukup dibuka langsung di browser. Untuk membuat ulang preview
+setelah template diubah, jalankan:
+
+```bash
+python _buat_demo.py
+```
+
+Folder preview boleh dihapus tanpa memengaruhi aplikasi.
+
 ---
 
 ## 2. Kebutuhan Sistem

@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berita &#183; Admin SDN BATUAN 1 SUMENEP</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <a class="sidebar__brand" href="admin-dashboard.html">
+      <span class="brand__mark">SD</span>
+      <span>
+        SDN BATUAN 1 SUMENEP
+        <small>Admin Dashboard</small>
+      </span>
+    </a>
+
+    <nav>
+      <div class="side-group">
+        <div class="side-group__title">Utama</div>
+        <a class="side-link " href="admin-dashboard.html">01 &#183; Dashboard</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Konten</div>
+        <a class="side-link " href="admin-profil.html">Profil Sekolah</a>
+        <a class="side-link is-active" href="admin-berita.html">Berita</a>
+        <a class="side-link " href="admin-pengumuman.html">Pengumuman</a>
+        <a class="side-link " href="admin-galeri.html">Galeri</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Pengaturan</div>
+        <a class="side-link " href="admin-identitas.html">Identitas Sekolah</a>
+        <a class="side-link " href="admin-akun.html">Akun Admin</a>
+      </div>
+
+      <div class="side-group">
+        <div class="side-group__title">Website</div>
+        <a class="side-link" href="" target="_blank" rel="noopener">Lihat Website &#8599;</a>
+      </div>
+    </nav>
+
+    <div class="sidebar__foot">
+      Login: <strong>admin</strong><br>
+      <a href="#">Logout</a>
+    </div>
+  </aside>
+
+  <!-- ===================== KONTEN ===================== -->
+  <div class="admin-main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="btn btn--sm adminmenu" type="button" data-sidebar-toggle">[ menu ]</button>
+        <div>
+          <div class="topbar__title">Berita</div>
+          <div class="topbar__meta">admin/admin &#183; SDN BATUAN 1 SUMENEP</div>
+        </div>
+      </div>
+      <div class="topbar__meta">
+        <span class="badge badge--green">&#9679; MySQL terhubung</span>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+        
+      
+
+      
+
+<div class="page-head">
+  <div>
+    <h1>Berita</h1>
+    <p>9 berita tersimpan. Berita berstatus draft tidak tampil di website.</p>
+  </div>
+  <a class="btn btn--primary btn--sm" href="admin-berita-form.html">+ Tambah Berita</a>
+</div>
+
+<!-- Pencarian & filter -->
+<form class="toolbar" method="get" action="/admin/berita">
+  <div class="field" style="min-width:240px">
+    <label for="q">Cari</label>
+    <input type="text" id="q" name="q" value="" placeholder="judul atau ringkasan">
+  </div>
+  <div class="field">
+    <label for="kategori">Kategori</label>
+    <select id="kategori" name="kategori">
+      <option value="">Semua</option>
+      
+        <option value="Akademik" >Akademik</option>
+      
+        <option value="Fasilitas" >Fasilitas</option>
+      
+        <option value="Kegiatan Sekolah" >Kegiatan Sekolah</option>
+      
+        <option value="Akademik" >Akademik</option>
+      
+        <option value="Prestasi" >Prestasi</option>
+      
+    </select>
+  </div>
+  <button class="btn" type="submit">Terapkan</button>
+  
+</form>
+
+
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Judul</th>
+          <th>Kategori</th>
+          <th>Tanggal</th>
+          <th>Status</th>
+          <th style="width:190px">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>
+              <strong>Kegiatan Muatan Lokal Batuan</strong><br>
+              <span class="small muted">Oleh Guru Kelas 4A</span>
+            </td>
+            <td><span class="badge badge--grey">Akademik</span></td>
+            <td class="small">2024-08-12</td>
+            <td>
+              
+                <span class="badge badge--green">published</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="berita-detail.html" target="_blank" rel="noopener">Lihat</a>
+                <a class="btn btn--sm" href="admin-berita-form.html">Ubah</a>
+                <form method="post" action="/admin/berita/1/hapus"
+                      data-konfirmasi="Hapus berita &quot;Kegiatan Muatan Lokal Batuan&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              <strong>Perpustakaan Sekolah Ditata Ulang</strong><br>
+              <span class="small muted">Oleh Tim Perpustakaan</span>
+            </td>
+            <td><span class="badge badge--grey">Fasilitas</span></td>
+            <td class="small">2024-07-28</td>
+            <td>
+              
+                <span class="badge badge--green">published</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="berita-detail.html" target="_blank" rel="noopener">Lihat</a>
+                <a class="btn btn--sm" href="admin-berita-form.html">Ubah</a>
+                <form method="post" action="/admin/berita/2/hapus"
+                      data-konfirmasi="Hapus berita &quot;Perpustakaan Sekolah Ditata Ulang&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              <strong>Jumat Bersih dan Literasi</strong><br>
+              <span class="small muted">Oleh Wali Kelas 5B</span>
+            </td>
+            <td><span class="badge badge--grey">Kegiatan Sekolah</span></td>
+            <td class="small">2024-07-19</td>
+            <td>
+              
+                <span class="badge badge--green">published</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="berita-detail.html" target="_blank" rel="noopener">Lihat</a>
+                <a class="btn btn--sm" href="admin-berita-form.html">Ubah</a>
+                <form method="post" action="/admin/berita/3/hapus"
+                      data-konfirmasi="Hapus berita &quot;Jumat Bersih dan Literasi&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              <strong>Pelatihan Pembelajaran Daring untuk Guru</strong><br>
+              <span class="small muted">Oleh Tata Usaha</span>
+            </td>
+            <td><span class="badge badge--grey">Akademik</span></td>
+            <td class="small">2024-06-25</td>
+            <td>
+              
+                <span class="badge badge--green">published</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="berita-detail.html" target="_blank" rel="noopener">Lihat</a>
+                <a class="btn btn--sm" href="admin-berita-form.html">Ubah</a>
+                <form method="post" action="/admin/berita/4/hapus"
+                      data-konfirmasi="Hapus berita &quot;Pelatihan Pembelajaran Daring untuk Guru&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              <strong>Juara Lomba Mewarnai Tingkat Kecamatan</strong><br>
+              <span class="small muted">Oleh Wali Kelas 4A</span>
+            </td>
+            <td><span class="badge badge--grey">Prestasi</span></td>
+            <td class="small">2024-06-10</td>
+            <td>
+              
+                <span class="badge badge--green">published</span>
+              
+            </td>
+            <td>
+              <div class="row-actions">
+                <a class="btn btn--sm" href="berita-detail.html" target="_blank" rel="noopener">Lihat</a>
+                <a class="btn btn--sm" href="admin-berita-form.html">Ubah</a>
+                <form method="post" action="/admin/berita/5/hapus"
+                      data-konfirmasi="Hapus berita &quot;Juara Lomba Mewarnai Tingkat Kecamatan&quot;?">
+                  <button class="btn btn--danger btn--sm" type="submit">Hapus</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  
+    <div class="pagination">
+      
+        
+          <span class="is-current">1</span>
+        
+      
+        
+          <a href="admin-berita.html">2</a>
+        
+      
+    </div>
+  
+
+
+
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL KONFIRMASI HAPUS ===================== -->
+<div class="modal" id="konfirmasi-modal">
+  <div class="modal__box">
+    <h3>Konfirmasi hapus</h3>
+    <p id="konfirmasi-teks" class="small">Data yang dihapus tidak dapat dikembalikan.</p>
+    <div class="modal__actions">
+      <button class="btn" type="button" data-modal-batal>Batal</button>
+      <button class="btn btn--danger" type="button" data-modal-ya>Ya, hapus</button>
+    </div>
+    <form id="konfirmasi-form" method="post" action="#" style="display:none"></form>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
